@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clothes</title>
+  <style>
+    body{
+      background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+      color: #fff;
+      height:100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+            
+      
+    }
+    #frame{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 210px;
+      
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame button{
+      margin-top:50px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+  </style>
+</head>
+<body>
+<div id="frame">
+  <p id="prag"></p>
+  <button id="btn">التالي </button>
+</div>
+<script>
+  let prag = document.getElementById('prag')
+let btn = document.getElementById('btn')
+let name;
+let changeName;
+let clothes = [
+  'قميص', 'بنطلون', 'جاكيت',
+  'فستان', 'تنورة', 'بلوزة',
+  'تي شيرت', 'جينز', 'معطف',
+  'سروال قصير', 'بدلة', 'جوارب',
+  'حذاء', 'صندل', 'حذاء رياضي',
+  'قبعة', 'وشاح', 'قفازات',
+  'حزام', 'حقيبة يد', 'حقيبة ظهر',
+  'نظارة شمسية', 'ساعة', 'إكسسوارات',
+  'ملابس داخلية', 'بيجاما', 'روب',
+  'عباءة', 'جلباب', 'طاقية',
+  'كارديجان', 'بلوزة صوف', 'سراويل رياضية',
+  'جاكيت جلد', 'معطف واق من المطر', 'سترة',
+  'جوارب طويلة', 'شرابات', 'أحذية كعب عالي',
+  'أحذية مسطحة', 'أحذية رجالية', 'أحذية نسائية',
+  'أحذية أطفال', 'أحذية شتوية', 'أحذية صيفية',
+  'أحذية رسمية', 'أحذية غير رسمية', 'أحذية رياضية',
+  'أحذية مريحة', 'أحذية أنيقة', 'أحذية كلاسيكية',
+  'أحذية عصرية', 'أحذية تقليدية', 'أحذية حديثة'
+];
+
+
+
+if (localStorage.Name != null) {
+  name = JSON.parse(localStorage.Name)
+} else {
+  name = [];
+}
+let i = 0;
+   prag.innerHTML= ` ادي التلفون ل ${name[i].name}  عشان يعرف هو بره ولا لا    `
+i++
+
+let num = 1
+ let change;
+ let change2 = [];
+ window.onload= function () {
+   change = Math.floor(Math.random()*clothes.length)
+    changeName=Math.floor(Math.random()*name.length+1)
+    for (var i = 0; i <= 9; i++) {
+     let change3 = Math.floor(Math.random()*clothes.length+i)
+      change2.push(clothes[change3])
+    }
+    localStorage.setItem('change2',JSON.stringify(change2))
+   localStorage.setItem('ChangeName',JSON.stringify(name[changeName].name))
+   localStorage.setItem('answer',JSON.stringify(clothes[change]))
+   
+ }
+btn.onclick= function () {
+  
+   
+  if (num === 1) {
+     if ( changeName=== i) {
+          prag.innerHTML= `بره`
+     
+   } else{
+        prag.innerHTML=` ${clothes[change]} `
+    }
+    num++
+  } else if (i=== name.length) {
+    window.location.href = `../question player/quesionplayer.html`
+    
+     }
+  else {
+    prag.innerHTML= `ادي التلفون ل  ${name[i].name} عشان يعرف هو بره ولا لا`
+    num=1
+    i++
+    
+
+  }
+}
+
+</script>
+</body>
+</html>

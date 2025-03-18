@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Famous</title>
+  <style>
+    body{
+      background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+      color: #fff;
+      height:100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      
+    }
+    #frame{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 210px;
+      
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame button{
+      margin-top:50px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+  </style>
+</head>
+<body>
+<div id="frame">
+  <p id="prag"></p>
+  <button id="btn">التالي </button>
+</div>
+<script>
+  let prag = document.getElementById('prag')
+let btn = document.getElementById('btn')
+let name;
+let changeName;
+let famous = [
+  'ألبرت أينشتاين', 'ستيف جوبز', 'بيل غيتس', 'إيلون ماسك',
+  'ليونيل ميسي', 'كرستيانو رونالدو', 'محمد صلاح', 'نيلسون مانديلا',
+  'مارتن لوثر كينغ', 'مهاتما غاندي', 'أوبرا وينفري', 'أنجيلينا جولي',
+  'براد بيت', 'ليوناردو دي كابريو', 'توم كروز', 'جينيفر لوبيز',
+  'بيونسيه', 'تايلور سويفت', 'أديل', 'شاكيرا',
+  'مايكل جاكسون', 'إلفيس بريسلي', 'جون لينون', 'بيتلز',
+  'بابلو بيكاسو', 'فان جوخ', 'ليوناردو دافنشي', 'سلفادور دالي',
+  'أرسطو', 'أفلاطون', 'سقراط', 'نيوتن',
+  'تشارلز داروين', 'ماري كوري', 'نيكولا تسلا', 'جاليليو جاليلي',
+  'فريدريك شوبان', 'بيتهوفن', 'موزارت', 'باخ',
+  'ويليام شكسبير', 'جورج أورويل', 'أرثر كونان دويل', 'مارك توين',
+  'أجاثا كريستي', 'جيه. كيه. رولينغ', 'ستيفن كينغ', 'جورج آر. آر. مارتن'
+];
+
+
+
+if (localStorage.Name != null) {
+  name = JSON.parse(localStorage.Name)
+} else {
+  name = [];
+}
+let i = 0;
+   prag.innerHTML= ` ادي التلفون ل ${name[i].name}  عشان يعرف هو بره ولا لا    `
+i++
+
+let num = 1
+ let change;
+ let change2 = [];
+ window.onload= function () {
+   change = Math.floor(Math.random()*famous.length)
+    changeName=Math.floor(Math.random()*name.length+1)
+    for (var i = 0; i <= 9; i++) {
+     let change3 = Math.floor(Math.random()*famous.length+i)
+      change2.push(famous[change3])
+    }
+    localStorage.setItem('change2',JSON.stringify(change2))
+    localStorage.setItem('ChangeName',JSON.stringify(name[changeName].name))
+    localStorage.setItem('answer',JSON.stringify(famous[change]))
+   
+   
+ }
+btn.onclick= function () {
+  
+   
+  if (num === 1) {
+     if ( changeName=== i) {
+          prag.innerHTML= `بره`
+     
+   } else{
+        prag.innerHTML = ` ${famous[change]} `
+    }
+    num++
+  } else if (i=== name.length) {
+    window.location.href = `../question player/quesionplayer.html`
+    
+     }
+  else {
+    prag.innerHTML= `ادي التلفون ل  ${name[i].name} عشان يعرف هو بره ولا لا`
+    num=1
+    i++
+    
+
+  }
+}
+
+</script>
+</body>
+</html>

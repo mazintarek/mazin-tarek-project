@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Movies</title>
+  <style>
+    body{
+      background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+      color: #fff;
+      height:100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      
+    }
+    #frame{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 210px;
+      
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame button{
+      margin-top:50px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+  </style>
+</head>
+<body>
+<div id="frame">
+  <p id="prag"></p>
+  <button id="btn">التالي </button>
+</div>
+<script>
+  let prag = document.getElementById('prag')
+let btn = document.getElementById('btn')
+let name;
+let changeName;
+let movies = [
+  'Inception', 'The Godfather', 'The Dark Knight', 'Pulp Fiction',
+  'Fight Club', 'Forrest Gump', 'The Matrix', 'Interstellar',
+  'The Shawshank Redemption', 'Titanic', 'Gladiator', 'The Lion King',
+  'Avatar', 'Jurassic Park', 'Star Wars: Episode IV - A New Hope', 'The Avengers',
+  'The Lord of the Rings: The Fellowship of the Ring', 'Harry Potter and the Sorcerer\'s Stone', 'The Social Network', 'La La Land',
+  'Parasite', 'The Grand Budapest Hotel', 'The Revenant', 'Mad Max: Fury Road',
+  'Whiplash', 'The Wolf of Wall Street', 'Django Unchained', 'Inglourious Basterds',
+  'The Departed', 'The Prestige', 'The Truman Show', 'The Sixth Sense',
+  'The Silence of the Lambs', 'The Green Mile', 'The Pianist', 'The Shining',
+  'The Big Lebowski', 'The Usual Suspects', 'The Exorcist', 'The Notebook',
+  'The Fault in Our Stars', 'The Hunger Games', 'The Twilight Saga', 'The Hobbit: An Unexpected Journey',
+  'The Jungle Book', 'The Little Mermaid', 'The Lion King', 'The Beauty and the Beast'
+];
+
+
+if (localStorage.Name != null) {
+  name = JSON.parse(localStorage.Name)
+} else {
+  name = [];
+}
+let i = 0;
+   prag.innerHTML= ` ادي التلفون ل ${name[i].name}  عشان يعرف هو بره ولا لا    `
+i++
+
+let num = 1
+ let change;
+ let change2 = [];
+ window.onload= function () {
+   change = Math.floor(Math.random()*movies.length)
+    changeName=Math.floor(Math.random()*name.length+1)
+    for (var i = 0; i <= 9; i++) {
+     let change3 = Math.floor(Math.random()*movies.length+i)
+      change2.push(movies[change3])
+    }
+    localStorage.setItem('change2',JSON.stringify(change2))
+   localStorage.setItem('ChangeName',JSON.stringify(name[changeName].name))
+   localStorage.setItem('answer',JSON.stringify(movies[change]))
+   
+ }
+btn.onclick= function () {
+  
+   
+  if (num === 1) {
+     if ( changeName=== i) {
+          prag.innerHTML= `بره`
+     
+   } else{
+        prag.innerHTML=` ${movies[change]} `
+    }
+    num++
+  } else if (i=== name.length) {
+    window.location.href = `../question player/quesionplayer.html`
+    
+     }
+  else {
+    prag.innerHTML= `ادي التلفون ل  ${name[i].name} عشان يعرف هو بره ولا لا`
+    num=1
+    i++
+    
+
+  }
+}
+
+</script>
+</body>
+</html>

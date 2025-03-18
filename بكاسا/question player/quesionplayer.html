@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>question player</title>
+  <style>
+    body{
+      background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+      color: #fff;
+      height:100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      
+    }
+    #frame{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 210px;
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame button{
+      margin-top:50px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+     #frame2{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 250px;
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame2 p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame2 button{
+      margin-top:10px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+    .hidden{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="hidden" id="frame">
+  <p id="prag"></p>
+
+  <button id="btn">التالي </button>
+</div>
+  <div id="frame2">
+       <p id="prag2">كل واحد هيسأل التاني سؤال وانتوا حاولوا تعرفوا مين ال بره وال بره يحاول يعرف ايه هو الحيوان </p>
+
+     <button id="btn2">التالي </button>
+  </div>
+ <script src="main.js"></script>
+</body>
+
+</html>

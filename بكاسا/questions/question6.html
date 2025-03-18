@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animy</title>
+  <style>
+    body{
+      background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+      color: #fff;
+      height:100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+    }
+    #frame{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 210px;
+      
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame button{
+      margin-top:50px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+  </style>
+</head>
+<body>
+<div id="frame">
+  <p id="prag"></p>
+  <button id="btn">التالي </button>
+</div>
+<script>
+  let prag = document.getElementById('prag')
+let btn = document.getElementById('btn')
+let name;
+let changeName;
+let animy = [
+  'Dragon Ball', 'قاتل الشياطين', 'My Hero Academy', 'شعله ريكا',
+  'Naruto', 'One Piece', 'Attack on Titan', 'Death Note',
+  'Fullmetal Alchemist', 'Hunter x Hunter', 'Bleach', 'Fairy Tail',
+  'Sword Art Online', 'Tokyo Ghoul', 'Demon Slayer', 'Black Clover',
+  'Jujutsu Kaisen', 'Haikyuu!!', 'Your Lie in April', 'Steins;Gate',
+  'Cowboy Bebop', 'Neon Genesis Evangelion', 'Code Geass', 'Re:Zero',
+  'The Promised Neverland', 'Mob Psycho 100', 'One Punch Man', 'Dr. Stone',
+  'Vinland Saga', 'Parasyte', 'Blue Exorcist', 'Noragami',
+  'Soul Eater', 'Magi: The Labyrinth of Magic', 'The Seven Deadly Sins', 'No Game No Life',
+  'Kuroko\'s Basketball', 'Food Wars!', 'Assassination Classroom', 'The Rising of the Shield Hero',
+  'Made in Abyss', 'Erased', 'A Silent Voice', 'Your Name',
+  'Weathering with You', 'Spirited Away', 'My Neighbor Totoro', 'Princess Mononoke'
+];
+
+
+
+if (localStorage.Name != null) {
+  name = JSON.parse(localStorage.Name)
+} else {
+  name = [];
+}
+let i = 0;
+   prag.innerHTML= ` ادي التلفون ل ${name[i].name}  عشان يعرف هو بره ولا لا    `
+i++
+
+let num = 1
+ let change;
+ let change2 = [];
+ window.onload= function () {
+   change = Math.floor(Math.random()*animy.length)
+    changeName=Math.floor(Math.random()*name.length+1)
+     for (var i = 0; i <= 9; i++) {
+     let change3 = Math.floor(Math.random()*animy.length+i)
+      change2.push(animy[change3])
+    }
+    localStorage.setItem('change2',JSON.stringify(change2))
+    localStorage.setItem('ChangeName',JSON.stringify(name[changeName].name))
+    localStorage.setItem('answer',JSON.stringify(animy[change]))
+   
+   
+ }
+btn.onclick= function () {
+  
+   
+  if (num === 1) {
+     if ( changeName=== i) {
+          prag.innerHTML= `بره`
+     
+   } else{
+        prag.innerHTML = ` ${animy[change]} `
+    }
+    num++
+  } else if (i=== name.length) {
+    window.location.href = `../question player/quesionplayer.html`
+    
+     }
+  else {
+    prag.innerHTML= `ادي التلفون ل  ${name[i].name} عشان يعرف هو بره ولا لا`
+    num=1
+    i++
+    
+
+  }
+}
+
+</script>
+</body>
+</html>

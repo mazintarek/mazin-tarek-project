@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animals</title>
+  <style>
+    body{
+      background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+      color: #fff;
+      height:100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      
+    }
+    #frame{
+      background:linear-gradient(320deg , #04FFF2 , #FF1F04 , #FFF004);
+      width: 300px;
+      height: 210px;
+      
+      color: white;
+      text-align: center;
+      border: solid 7px black;
+    }
+    #frame p{
+      font-size: 20px;
+      text-align: center;
+      padding-top: 10px
+      
+    }
+    #frame button{
+      margin-top:50px ;
+      width: 90%;
+      border-radius: 10px;
+      color: #000;
+      background: #fff
+     
+      
+    }
+  </style>
+</head>
+<body>
+<div id="frame">
+  <p id="prag"></p>
+  <button id="btn">التالي </button>
+</div>
+<script>
+  let prag = document.getElementById('prag')
+let btn = document.getElementById('btn')
+let name;
+let changeName;
+let animals = [
+  'أسد', 'فيل', 'غوريلا',
+  'نمر', 'زرافة', 'حمار وحشي',
+  'كنغر', 'باندا', 'بطريق',
+  'فهد', 'كركدن', 'فرس النهر',
+  'تمساح', 'ذئب', 'دب',
+  'ثعلب', 'غزال', 'قرد',
+  'كوالا', 'نعامة', 'فقمة',
+  'دلفين', 'حوت', 'قرش',
+  'نسر', 'بومة', 'ببغاء',
+  'طاووس', 'فلامنغو', 'بجعة',
+  'ضفدع', 'سلحفاة', 'ثعبان',
+  'سحلية', 'حرباء', 'فراشة',
+  'نحلة', 'نملة', 'عنكبوت',
+  'سلطعون', 'أخطبوط', 'قنديل البحر',
+  'راكون', 'بانغولين', 'ظبي',
+  'فأر', 'جرذ', 'هامستر',
+  'خنزير', 'بقرة', 'خروف',
+  'ماعز', 'حصان', 'جمل',
+  'كلب', 'قطة', 'أرنب',
+  'قنفذ', 'خلد', 'خفاش',
+  'باندا أحمر', 'بانغول', 'ظبي الماء',
+  'فهد ثلجي', 'دب قطبي', 'ذئب القطب الشمالي',
+  'فيل البحر', 'فيل آسيوي', 'فيل أفريقي'
+];
+
+
+
+if (localStorage.Name != null) {
+  name = JSON.parse(localStorage.Name)
+} else {
+  name = [];
+}
+let i = 0;
+   prag.innerHTML= ` ادي التلفون ل ${name[i].name}  عشان يعرف هو بره ولا لا    `
+i++
+
+let num = 1
+ let change;
+ let change2 = [];
+ window.onload= function () {
+   change = Math.floor(Math.random()*animals.length)
+    changeName=Math.floor(Math.random()*name.length)
+    for (var i = 0; i <= 9; i++) {
+     let change3 = Math.floor(Math.random()*animals.length+i)
+      change2.push(animals[change3])
+    }
+    localStorage.setItem('change2',JSON.stringify(change2))
+    localStorage.setItem('ChangeName',JSON.stringify(name[changeName].name))
+   localStorage.setItem('answer',JSON.stringify(animals[change]))
+   
+ }
+btn.onclick= function () {
+  
+   
+  if (num === 1) {
+     if ( changeName+1=== i) {
+          prag.innerHTML= `بره`
+     
+   } else{
+        prag.innerHTML=`  ${animals[change]} `
+    }
+    num++
+  } else if (i=== name.length) {
+    window.location.href = `../question player/quesionplayer.html`
+    
+     }
+  else {
+    prag.innerHTML= `ادي التلفون ل  ${name[i].name} عشان يعرف هو بره ولا لا`
+    num=1
+    i++
+    
+
+  }
+}
+
+</script>
+</body>
+</html>
