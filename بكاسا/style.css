@@ -1,0 +1,29 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+body {
+    background:linear-gradient(320deg , #FFF004 , #FF1F04 , #04FFF2);
+    color: #fff;
+    min-height: 100vh;
+}
+#div{
+  display: inline-block;
+  margin: 20px;
+  min-width: 160px;
+  background-color: #354A91;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
+ 
+  
+}
+img{
+  margin: 5px;
+  width: 100px;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}

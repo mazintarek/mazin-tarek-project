@@ -1,7 +1,7 @@
 let home = document.getElementById('home')
 let font = document.getElementById('font')
 home.onclick = function() {
-  location.href = '../Home/index.html'
+  location.href = '../index.html'
 }
 font.onclick = function() {
   location.href = '../front.html'
